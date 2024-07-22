@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.dremio.plugin</groupId>
+  <version>25.0.5</version>
+  <artifactId>dremio-apachehivearp-plugin</artifactId>
+  <name>Dremio ApacheHive ARP Connector</name>
+
+  <properties>
+    <version.dremio>25.0.5-202407020141140611-dca7a083</version.dremio>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.dremio.community.plugins</groupId>
+      <artifactId>dremio-ce-jdbc-plugin</artifactId>
+      <version>${version.dremio}</version>
+    </dependency>
+	  <dependency>
+	      <groupId>jakarta.validation</groupId>
+	      <artifactId>jakarta.validation-api</artifactId>
+	      <version>3.0.2</version>
+	  </dependency>
+	  <dependency>
+	      <groupId>org.hibernate</groupId>
+	      <artifactId>hibernate-validator</artifactId>
+	      <version>8.0.1.Final</version>
+	  </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>3.0.0</version>
+        <configuration>
+          <configLocation>src/main/checkstyle/checkstyle-config.xml</configLocation>
+          <suppressionsLocation>src/main/checkstyle/checkstyle-suppressions.xml</suppressionsLocation>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.0</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <repositories>
+    <repository>
+      <id>dremio-public</id>
+      <url>https://maven.dremio.com/public/</url>
+    </repository>
+    <repository>
+      <id>dremio-free</id>
+      <url>https://maven.dremio.com/free/</url>
+    </repository>
+  </repositories>
+</project>
+
